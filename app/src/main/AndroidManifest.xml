@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StudyProject"
+        tools:targetApi="33">
+        <activity
+            android:name=".noticeAndMediaStudy.CameraXActivity"
+            android:exported="false" />
+        <activity
+            android:name=".noticeAndMediaStudy.MediaStudyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".noticeAndMediaStudy.PictureStudyActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.studyproject.noticeAndMediaStudy.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".noticeAndMediaStudy.NoticeStudyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".noticeAndMediaStudy.NoticeAndMediaStudyMainActivity"
+            android:exported="false" />
+
+        <provider
+            android:name=".contentProviderStudy.DatabaseProvider"
+            android:authorities="com.example.studyproject.provider"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".contentProviderStudy.CreateContentProviderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".contentProviderStudy.ReadPhoneContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".contentProviderStudy.ContentProviderMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dataSaveStudy.SQLiteSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dataSaveStudy.SharePreferenceSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dataSaveStudy.OpenFileSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dataSaveStudy.DataSaveStudyMainActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".broadcastStudy.OrderedBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="100">
+                <action android:name="com.example.studyproject.broadcastStudy.MY_STANDARD_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastStudy.StandardBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.studyproject.broadcastStudy.MY_STANDARD_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastStudy.PhoneStartReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".broadcastStudy.BroadcastTimeChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".broadcastStudy.BroadcastStudyMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".fragmentStudy.FragmentStudyMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listViewAndRecycleView.RecyclerListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listViewAndRecycleView.ListViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listViewAndRecycleView.ListViewAndRecycleViewMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutStudy.ConstraintLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutStudy.LayoutStudyMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutStudy.GridLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutStudy.AbsoluteLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutStudy.FrameLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutStudy.RelativeLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutStudy.LinearLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityStudy.ActivityLifecyeleDialogActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".activityStudy.ActivityLifecyeleNormalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityStudy.ActivityLifecycleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityStudy.IntentMessagePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityStudy.IntentWithMessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityStudy.Intent1Activity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.intent1" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- <data android:scheme="http"/> -->
+                <!-- <data android:host="www.baidu.com"/> -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activityStudy.IntentStudyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityStudy.StudyActivityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

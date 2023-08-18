@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">StudyProject</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="activity">activity部分学习</string>
+    <string name="layout">常用控件及界面</string>
+    <string name="intent">Intent及Menu</string>
+    <string name="intentText">
+        1、Memu（右上方菜单）的使用\n
+        2、Intent跳转Activity、其他界面及返回的使用
+    </string>
+    <string name="intent1">显式跳转</string>
+    <string name="intent2">隐式调用</string>
+    <string name="intent3">网页跳转</string>
+    <string name="intent4">拨号界面跳转</string>
+    <string name="intent5">携带信息</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="start_capture">Start Capture</string>
+    <string name="stop_capture">Stop Capture</string>
+</resources>
