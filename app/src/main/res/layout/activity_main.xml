@@ -54,5 +54,11 @@
         android:id="@+id/noticeAndMedia"
         android:text="通知多媒体"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/threadAndServiceStudy"
+        android:text="线程和Service"/>
+
 
 </LinearLayout>

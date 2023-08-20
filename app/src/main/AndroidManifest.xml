@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -22,6 +24,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyProject"
         tools:targetApi="33">
+        <service
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
+            android:name=".threadAndService.NormalService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".threadAndService.ServiceStudyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".threadAndService.ThreadStudyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".threadAndService.ThreadAndServiceMainActivity"
+            android:exported="false" />
         <activity
             android:name=".noticeAndMediaStudy.CameraXActivity"
             android:exported="false" />

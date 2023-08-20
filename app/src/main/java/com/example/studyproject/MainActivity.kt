@@ -14,6 +14,7 @@ import com.example.studyproject.fragmentStudy.FragmentStudyMainActivity
 import com.example.studyproject.layoutStudy.LayoutStudyMainActivity
 import com.example.studyproject.listViewAndRecycleView.ListViewAndRecycleViewMainActivity
 import com.example.studyproject.noticeAndMediaStudy.NoticeAndMediaStudyMainActivity
+import com.example.studyproject.threadAndService.ThreadAndServiceMainActivity
 
 class MainActivity : AppCompatActivity(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             R.id.dataSaveStudy -> startActivity(Intent(this,DataSaveStudyMainActivity::class.java))
             R.id.contentProviderStudy -> startActivity(Intent(this,ContentProviderMainActivity::class.java))
             R.id.noticeAndMedia -> startActivity(Intent(this, NoticeAndMediaStudyMainActivity::class.java))
+            R.id.threadAndServiceStudy -> startActivity(Intent(this,ThreadAndServiceMainActivity::class.java))
         }
     }
 
