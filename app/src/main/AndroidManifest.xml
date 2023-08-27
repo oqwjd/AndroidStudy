@@ -24,14 +24,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyProject"
         tools:targetApi="33">
-        <service
-            android:enabled="true"
-            android:exported="true"></service>
+        <activity
+            android:name=".materialDesign.MaterialDesignExaActivity"
+            android:exported="false"
+            android:theme="@style/MaterialDesignTest"
+            android:label="Fruit"
+            />
+
         <service
             android:name=".threadAndService.NormalService"
             android:enabled="true"
             android:exported="true" />
 
+        <activity
+            android:name=".materialDesign.MaterialDesignStudyMainActivity"
+            android:exported="false" />
         <activity
             android:name=".threadAndService.ServiceStudyActivity"
             android:exported="false" />

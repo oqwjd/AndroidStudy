@@ -13,6 +13,7 @@ import com.example.studyproject.dataSaveStudy.DataSaveStudyMainActivity
 import com.example.studyproject.fragmentStudy.FragmentStudyMainActivity
 import com.example.studyproject.layoutStudy.LayoutStudyMainActivity
 import com.example.studyproject.listViewAndRecycleView.ListViewAndRecycleViewMainActivity
+import com.example.studyproject.materialDesign.MaterialDesignStudyMainActivity
 import com.example.studyproject.noticeAndMediaStudy.NoticeAndMediaStudyMainActivity
 import com.example.studyproject.threadAndService.ThreadAndServiceMainActivity
 
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             R.id.contentProviderStudy -> startActivity(Intent(this,ContentProviderMainActivity::class.java))
             R.id.noticeAndMedia -> startActivity(Intent(this, NoticeAndMediaStudyMainActivity::class.java))
             R.id.threadAndServiceStudy -> startActivity(Intent(this,ThreadAndServiceMainActivity::class.java))
+            R.id.materialDesignStudy -> startActivity(Intent(this,MaterialDesignStudyMainActivity::class.java))
         }
     }
 

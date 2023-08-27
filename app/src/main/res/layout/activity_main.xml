@@ -60,5 +60,11 @@
         android:id="@+id/threadAndServiceStudy"
         android:text="线程和Service"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/materialDesignStudy"
+        android:text="material Design"/>
+
 
 </LinearLayout>
