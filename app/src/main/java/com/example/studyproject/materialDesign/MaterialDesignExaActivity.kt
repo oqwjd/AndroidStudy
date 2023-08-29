@@ -1,5 +1,6 @@
 package com.example.studyproject.materialDesign
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -11,11 +12,17 @@ import com.example.studyproject.R
 import com.example.studyproject.databinding.ActivityMaterialDesignExaBinding
 import com.example.studyproject.listViewAndRecycleView.Fruit
 import com.google.android.material.snackbar.Snackbar
+import kotlin.concurrent.thread
 
 class MaterialDesignExaActivity : AppCompatActivity() {
     private lateinit var viewBinder:ActivityMaterialDesignExaBinding
     private var fruitList = ArrayList<Fruit>()
+    private var fruits = listOf<Fruit>(Fruit("apple",R.drawable.apple_pic),
+        Fruit("orange",R.drawable.orange_pic),
+        Fruit("strawberry",R.drawable.strawberry_pic),
+        Fruit("watermelon",R.drawable.watermelon_pic))
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_material_design_exa)
@@ -29,7 +36,6 @@ class MaterialDesignExaActivity : AppCompatActivity() {
         }
         viewBinder.MDNavView.setNavigationItemSelectedListener {
             when(it.itemId){
-
                 R.id.navCall -> Toast.makeText(this,"you clicked Call button",Toast.LENGTH_SHORT).show()
                 R.id.navPeople -> Toast.makeText(this,"you clicked Friend button",Toast.LENGTH_SHORT).show()
                 R.id.navEMail -> Toast.makeText(this,"you clicked Email button",Toast.LENGTH_SHORT).show()
@@ -51,10 +57,12 @@ class MaterialDesignExaActivity : AppCompatActivity() {
         initFruits()
         val manager = GridLayoutManager(this,2)
         viewBinder.MDCardRecycleFruitView.layoutManager = manager
-        viewBinder.MDCardRecycleFruitView.adapter = FruitItemsRecyclerAdapter(this,fruitList)
-
-
-
+        val adapter = FruitItemsRecyclerAdapter(this,fruitList)
+        viewBinder.MDCardRecycleFruitView.adapter = adapter
+        viewBinder.MDSwipeRefresh.setColorSchemeColors(R.color.purple_500)
+        viewBinder.MDSwipeRefresh.setOnRefreshListener {
+            refreshFruits(adapter)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -69,12 +77,24 @@ class MaterialDesignExaActivity : AppCompatActivity() {
         return true
     }
 
+
+
     private fun initFruits(){
-        repeat(10){
-            fruitList.add(Fruit("apple",R.drawable.apple_pic))
-            fruitList.add(Fruit("orange",R.drawable.orange_pic))
-            fruitList.add(Fruit("strawberry",R.drawable.strawberry_pic))
-            fruitList.add(Fruit("watermelon",R.drawable.watermelon_pic))
+        fruitList.clear()
+        repeat(50){
+            fruitList.add(fruits[(fruits.indices).random()])
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun refreshFruits(adapter: FruitItemsRecyclerAdapter){
+        thread {
+            Thread.sleep(1000)
+            runOnUiThread{
+                initFruits()
+                adapter.notifyDataSetChanged()
+                viewBinder.MDSwipeRefresh.isRefreshing = false
+            }
         }
     }
 }

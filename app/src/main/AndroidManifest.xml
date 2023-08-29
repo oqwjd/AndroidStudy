@@ -25,11 +25,14 @@
         android:theme="@style/Theme.StudyProject"
         tools:targetApi="33">
         <activity
+            android:name=".materialDesign.CollapsingToolbarLayoutActivity"
+            android:theme="@style/FruitActivityTheme"
+            android:exported="false" />
+        <activity
             android:name=".materialDesign.MaterialDesignExaActivity"
             android:exported="false"
             android:theme="@style/MaterialDesignTest"
-            android:label="Fruit"
-            />
+            android:label="Fruit"/>
 
         <service
             android:name=".threadAndService.NormalService"

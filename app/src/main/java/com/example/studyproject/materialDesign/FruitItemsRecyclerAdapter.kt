@@ -1,6 +1,7 @@
 package com.example.studyproject.materialDesign
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +19,17 @@ class FruitItemsRecyclerAdapter(val context: Context,val fruitList:List<Fruit>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = MaterialCardRecyclerViewBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(view)
+        val viewHolder = ViewHolder(view)
+        viewHolder.itemView.setOnClickListener{
+            val position = viewHolder.adapterPosition
+            val fruit = fruitList[position]
+            val intent = Intent(context,CollapsingToolbarLayoutActivity::class.java).apply {
+                putExtra("fruit_name",fruit.name)
+                putExtra("fruit_image_id",fruit.imageId)
+            }
+            context.startActivity(intent)
+        }
+        return viewHolder
     }
 
     override fun getItemCount() = fruitList.size
